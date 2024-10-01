@@ -1,22 +1,20 @@
 !(function (document, arr) {
   /* main function, acts as constructor and factory */
-  $ = function (sel, root = document, c) {
-    return c
+  $ = function (sel, c) {
+    return c // true = constructor, false = function
       ? arr.push.apply(
           this,
-          sel
-            ? sel[0]?.nodeType
-              ? sel
-              : sel.nodeType
-              ? [sel]
-              : (root[0] ?? root).querySelectorAll(sel)
-            : $._?.()
+          sel && sel.nodeType
+            ? [sel]
+            : "" + sel === sel
+            ? c.querySelectorAll(sel)
+            : sel
         )
       : /^f/.test(typeof sel)
       ? /c/.test(document.readyState)
         ? sel()
         : $(document).on("DOMContentLoaded", sel)
-      : new $(sel, root, 1);
+      : new $(sel, document);
   };
 
   // set prototype to array to inherit array behavior

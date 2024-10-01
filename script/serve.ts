@@ -3,4 +3,4 @@ const server = Bun.serve({
   error: () => new Response(null, { status: 404 }),
 });
 
-console.log(`Visit ${server.url}index.html`);
+console.log(`Visit ${server.url}test/index.html`);

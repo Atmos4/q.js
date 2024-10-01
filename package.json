@@ -2,6 +2,7 @@
   "name": "q.js",
   "module": "index.ts",
   "type": "module",
+  "license": "WTFPL",
   "scripts": {
     "b": "bun run script/build.ts",
     "s": "bun run script/serve.ts"

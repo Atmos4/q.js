@@ -2,7 +2,7 @@ import { $ } from "bun";
 import { minify } from "terser";
 
 // script
-await compress("./q.js", "dist/q.min.js");
+await compress("src/q.js", "dist/q.min.js");
 
 // helpers
 // The plan is to switch to Bun.build when it's stable
@@ -18,6 +18,6 @@ async function compress(inFile: string, outFile: string) {
 }
 
 async function logResult(size: number, file: string) {
-  const gzip = await $`gzip -c ${file}`.text();
-  console.log(`${file}: ${size}B - ${gzip.length}B gz`);
+  const gzip = (await $`gzip -c -9 ${file} | wc -c`.text()).trim();
+  console.log(`${file}: ${size}B - ${gzip}B gz`);
 }
