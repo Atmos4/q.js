@@ -1,0 +1,17 @@
+{
+  "name": "q.js",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "b": "bun run script/build.ts",
+    "s": "bun run script/serve.ts"
+  },
+  "devDependencies": {
+    "@happy-dom/global-registrator": "^15.7.4",
+    "@types/bun": "latest",
+    "terser": "^5.34.1"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
