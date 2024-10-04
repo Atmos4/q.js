@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="color-scheme" content="dark">
   <title>Test page</title>
-  <script src="../src/q.js"></script>
+  <script src="../dist/q.min.js"></script>
   <style>
     html {
       font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
@@ -21,6 +21,11 @@
   </style>
 </head>
 <body>
+  <script>
+    q.fn.text = function (t) {
+      return this.f(e => (e.textContent = t));
+    }
+  </script>
   <h1>Test page</h1>
   <section>
     <div>

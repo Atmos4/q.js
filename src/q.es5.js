@@ -1,20 +1,17 @@
-/** Extended version of q.js.
- * For now it's the same. I will add functionality until
- * I feel like I can replicate most of jQuery API */
 !(function (document, arr) {
   /* main function, acts as constructor and factory */
   q = function (sel, c) {
     return c
       ? arr.push.apply(
           this,
-          "" + sel === sel
+          "" + sel === sel // string
             ? c.querySelectorAll(sel)
-            : sel && sel[0]
+            : sel && sel[0] // array
             ? sel
             : [sel]
         )
-      : /^f/.test(typeof sel)
-      ? /c/.test(document.readyState)
+      : /nc/.test(typeof sel) // only matches function. better than ^f for gzip
+      ? /c/.test(document.readyState) // only matches complete
         ? sel()
         : q(document).on("DOMContentLoaded", sel)
       : new q(sel, document);

@@ -1,39 +1,35 @@
 !(function (document, arr) {
   /* main function, acts as constructor and factory */
-  $ = function (sel, c) {
-    return c // true = constructor, false = function
+  q = function (sel, c) {
+    return c
       ? arr.push.apply(
           this,
-          sel && sel.nodeType
-            ? [sel]
-            : "" + sel === sel
+          "" + sel === sel
             ? c.querySelectorAll(sel)
-            : sel
+            : sel && sel[0]
+            ? sel
+            : [sel]
         )
-      : /^f/.test(typeof sel)
+      : /nc/.test(typeof sel)
       ? /c/.test(document.readyState)
         ? sel()
-        : $(document).on("DOMContentLoaded", sel)
-      : new $(sel, document);
+        : q(document).on("DOMContentLoaded", sel)
+      : new q(sel, document);
   };
 
   // set prototype to array to inherit array behavior
-  $.prototype = $.fn = arr;
+  q.prototype = q.fn = arr;
 
   // add chainables
-  Object.assign($.fn, {
-    on: function (a, b) {
-      return this.each(function (c) {
-        c.addEventListener(a, b);
-      });
+  Object.assign(q.fn, {
+    on(a, b) {
+      return this.f((c) => c.addEventListener(a, b));
     },
-    off: function (a, b) {
-      return this.each(function (c) {
-        c.removeEventListener(a, b);
-      });
+    off(a, b) {
+      return this.f((c) => c.removeEventListener(a, b));
     },
-    each: function (a, b) {
-      arr.forEach.call(this, a, b);
+    f(a, b) {
+      this.forEach(a, b);
       return this;
     },
   });
