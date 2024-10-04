@@ -5,6 +5,8 @@
 
 `q.js` is a tiny jQuery alternative.
 
+_`q.js` is heavily inspired by [ki.js](https://github.com/dciccale/ki.js), the main difference being improvements in byte size and tooling._
+
 ## Usage
 
 Include `q.js` with a script tag in the `head` of your HTML:
