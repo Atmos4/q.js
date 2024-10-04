@@ -1,7 +1,7 @@
 # q.js
 
-![](https://img.badgesize.io/Atmos4/q.js/master/dist/q.min.js.svg?label=minified)
-![](https://img.badgesize.io/Atmos4/q.js/master/dist/q.min.js.svg?compression=gzip&label=gzip)
+![](https://img.badgesize.io/Atmos4/q.js/v0.0.1/dist/q.min.js.svg?label=minified)
+![](https://img.badgesize.io/Atmos4/q.js/v0.0.1/dist/q.min.js.svg?compression=gzip&label=gzip)
 
 `q.js` is a tiny jQuery alternative.
 
