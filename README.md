@@ -68,12 +68,18 @@ q("div").off("click", log); // Turns off the event for all divs
 
 ### Build your own plugin
 
-To build a plugin / extension, you can add functions to `q.fn`:
+You can add functions to `q.fn`:
 
 ```js
 q.fn.text = function (t) {
   return this.f((e) => (e.textContent = t));
 };
+```
+
+Those functions become available to all `q` objects:
+
+```js
+q("button").text("Click me");
 ```
 
 ## Browser support
@@ -104,8 +110,10 @@ bun s
 
 ## Credits and inspiration
 
-`q.js` is named after `querySelectorAll`, because it started off as an alias for that method.
+`q.js` is named after `querySelectorAll`, it started off as an alias for that method.
 
 The implementation improves on a lot of ideas from [ki.js](https://github.com/dciccale/ki.js/). Go and give him a star!
 
 I wanted to see how small a jQuery API could get. The plan is to build an extended version that covers a lot more functionality and could be used in production.
+
+Contributions are most welcomed, especially in order to save more bytes!
